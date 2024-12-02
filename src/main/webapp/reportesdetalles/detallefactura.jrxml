@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6a37cffe-bb38-4bad-9e19-cfb575b3d7e4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="factura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    fhs.idfactura_has_servicio,
+    fhs.factura_idfactura,
+    fhs.servicios_idservicios,
+    fhs.articulos_idarticulos,
+    fhs.cantidad,
+    fhs.precio,
+    a.art_iva,
+    a.art_nombre,
+    
+    -- Calcular subtotal para productos exentos
+    CASE 
+        WHEN a.art_iva = 'EXENTA' THEN fhs.precio * fhs.cantidad 
+        ELSE 0 
+    END AS subtotal_exenta,
+    
+    -- Calcular subtotal para productos con IVA del 5%
+    CASE 
+        WHEN a.art_iva = '5' THEN fhs.precio * fhs.cantidad 
+        ELSE 0 
+    END AS subtotal_iva_5,
+    
+    -- Calcular subtotal para productos con IVA del 10%
+    CASE 
+        WHEN a.art_iva = '10' THEN fhs.precio * fhs.cantidad 
+        ELSE 0 
+    END AS subtotal_iva_10
+
+FROM 
+    "HotelRum".factura_has_servicio fhs
+LEFT JOIN 
+    "HotelRum".articulos a ON fhs.articulos_idarticulos = a.idarticulos
+where factura_idfactura = $P{factura};
+]]>
+	</queryString>
+	<field name="idfactura_has_servicio" class="java.lang.Integer"/>
+	<field name="factura_idfactura" class="java.lang.Integer"/>
+	<field name="servicios_idservicios" class="java.lang.Integer"/>
+	<field name="articulos_idarticulos" class="java.lang.Integer"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="precio" class="java.math.BigDecimal"/>
+	<field name="art_iva" class="java.lang.String"/>
+	<field name="art_nombre" class="java.lang.String"/>
+	<field name="subtotal_exenta" class="java.math.BigDecimal"/>
+	<field name="subtotal_iva_5" class="java.math.BigDecimal"/>
+	<field name="subtotal_iva_10" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="73" height="20" uuid="6f97a388-7b1d-47da-a38d-e562d6b174b5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="199" height="20" uuid="b42a7780-5562-4800-aed2-057e79536bb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{art_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="72" height="20" uuid="62f34971-f3b2-42c1-bb5a-3abc8fcc40c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="70" height="20" uuid="4fd6f5d5-50e2-4572-91cb-04c155c94402"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{subtotal_exenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="71" height="20" uuid="91bdd09a-ba28-4185-bd14-fd1e46f2f1b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{subtotal_iva_5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="0" width="70" height="20" uuid="19de3cdc-8a2b-4025-9d96-ba4767767607"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{subtotal_iva_10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="462257d3-a175-434a-b373-4061b43d192f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codciudades" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT idciudades, ciu_nombre
+	FROM "HotelRum".ciudades where idciudades = $P{codciudades};]]>
+	</queryString>
+	<field name="idciudades" class="java.lang.Integer"/>
+	<field name="ciu_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="131" y="4" width="310" height="28" uuid="09c5e642-a979-4508-a7ac-8318f1108aa1"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Individual de Ciudades]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="24" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="157" y="10" width="100" height="20" uuid="4d5b6ca7-f02a-4886-875e-471ad828029a"/>
+				<text><![CDATA[idciudades]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="10" width="100" height="20" uuid="7ca3a939-0261-4982-96e8-396c4493f2e1"/>
+				<text><![CDATA[ciu_nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="157" y="16" width="100" height="20" uuid="525e327e-2049-4eb6-8300-56c7ab6e6c83"/>
+				<textFieldExpression><![CDATA[$F{idciudades}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="16" width="100" height="20" uuid="4fcb6055-10f7-47b0-bef0-601ce51e74cf"/>
+				<textFieldExpression><![CDATA[$F{ciu_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="31" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="42" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

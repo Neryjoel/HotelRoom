@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29a7d63e-fc5b-4394-8141-b9fad48487db">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codhuespedes" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT idhuespedes, hues_nombre, hues_apellido, hues_ci, hues_telefono
+	FROM "HotelRum".huespedes where idhuespedes = $P{codhuespedes};]]>
+	</queryString>
+	<field name="idhuespedes" class="java.lang.Integer"/>
+	<field name="hues_nombre" class="java.lang.String"/>
+	<field name="hues_apellido" class="java.lang.String"/>
+	<field name="hues_ci" class="java.lang.String"/>
+	<field name="hues_telefono" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="0" width="300" height="31" uuid="73c44efd-062a-43d1-a9fb-4595e8281933"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Individual de Huespedes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="0" width="111" height="20" uuid="f460ee98-e831-4a1c-bfca-560051d07056"/>
+				<text><![CDATA[idhuespedes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="111" height="20" uuid="a3ecd30f-0ead-466a-961c-242dd2201e65"/>
+				<text><![CDATA[hues_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="111" height="20" uuid="3638500f-d318-438e-adfc-0a2bcc350ff5"/>
+				<text><![CDATA[hues_apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="0" width="111" height="20" uuid="9f48d9b2-ec0f-438d-b1a4-9fc979e3548d"/>
+				<text><![CDATA[hues_ci]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="111" height="20" uuid="849d04b1-5086-4ea8-8324-ff9b7b02a69a"/>
+				<text><![CDATA[hues_telefono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="0" width="111" height="20" uuid="c1b0ccc6-70b4-4c9c-98fb-a4727cb1c085"/>
+				<textFieldExpression><![CDATA[$F{idhuespedes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="111" height="20" uuid="92b76f9e-769d-425c-88e5-75952215634e"/>
+				<textFieldExpression><![CDATA[$F{hues_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="111" height="20" uuid="d3f118f1-db67-4834-abeb-8fd1b4dff7ee"/>
+				<textFieldExpression><![CDATA[$F{hues_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="0" width="111" height="20" uuid="e38c9ece-f9ee-43d8-bcb8-e1ca3876f6a2"/>
+				<textFieldExpression><![CDATA[$F{hues_ci}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="111" height="20" uuid="30c915d0-7bcf-43f2-93d1-b7fdf2340128"/>
+				<textFieldExpression><![CDATA[$F{hues_telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

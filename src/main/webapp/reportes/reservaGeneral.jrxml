@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be02c700-cd8c-4d85-8406-e096fac8bd8d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT r.idreservas, TO_CHAR(r.res_fecha_entrada, 'DD/MM/YYYY') 
+AS res_fecha_entrada, TO_CHAR(r.res_fecha_salida, 'DD/MM/YYYY') 
+AS res_fecha_salida, r.estado, h.hues_nombre 
+AS huesped, hab.habi_descripcion AS habitacion 
+FROM "HotelRum"."reservas" r 
+JOIN "HotelRum"."huespedes" h 
+ON r.huespedes_idhuespedes = h.idhuespedes 
+JOIN "HotelRum"."habitaciones" hab 
+ON r.habitacion_idhabitacion = hab.idhabitaciones 
+ORDER BY r.idreservas ASC;]]>
+	</queryString>
+	<field name="idreservas" class="java.lang.Integer"/>
+	<field name="res_fecha_entrada" class="java.lang.String"/>
+	<field name="res_fecha_salida" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="huesped" class="java.lang.String"/>
+	<field name="habitacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="0" width="285" height="34" uuid="0ac9fe42-6d5d-4571-85c0-54d64bec9247"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Reservas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="0" width="43" height="20" uuid="a893a9bd-19d9-481e-afac-a7bde3cdc82e"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="92" height="20" uuid="b726aeb9-e553-4b00-a59b-c7ee666302b1"/>
+				<text><![CDATA[res_fecha_entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="0" width="92" height="20" uuid="51f1fff8-bcd6-4e6e-a93b-0abc837b2ea4"/>
+				<text><![CDATA[res_fecha_salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="0" width="61" height="20" uuid="79abe7e7-51a1-4a1d-8229-ae8205e06489"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="68" height="20" uuid="9fdaa4b1-54a9-4f0d-a79c-1d3b0d8ac4f4"/>
+				<text><![CDATA[huesped]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="92" height="20" uuid="32a31c7b-8889-4b6d-aca0-81acef70338c"/>
+				<text><![CDATA[habitacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="19" y="0" width="43" height="20" uuid="cf914c2c-ec2e-48bc-b964-025496f6d36d"/>
+				<textFieldExpression><![CDATA[$F{idreservas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="92" height="20" uuid="18900583-6955-45c9-aafb-000e385c8d32"/>
+				<textFieldExpression><![CDATA[$F{res_fecha_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="92" height="20" uuid="fd7fba79-cabc-41d5-bb94-8220b8e7a0a3"/>
+				<textFieldExpression><![CDATA[$F{res_fecha_salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="0" width="61" height="20" uuid="d9cb97f3-e5b3-461a-b45e-41c1b0268f2e"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="0" width="68" height="20" uuid="1bd87d95-91d5-4e20-885a-02c888109081"/>
+				<textFieldExpression><![CDATA[$F{huesped}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="0" width="92" height="20" uuid="5d1f55c6-157b-4ba5-afa9-3dca4318ae04"/>
+				<textFieldExpression><![CDATA[$F{habitacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="36" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="34" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="31" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a6de0075-a56c-43ec-87d3-8ec307851026">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codproveedores" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.idproveedores, p.prov_nombre, p.prov_ruc, p.prov_telefono, p.prov_direccion, p.prov_email, c.ciu_nombre 
+	FROM "HotelRum"."proveedores" p 
+	JOIN "HotelRum"."ciudades" c 
+	ON p.ciudades_idciudades = c.idciudades where idproveedores = $P{codproveedores} 
+	ORDER BY p.idproveedores ASC;]]>
+	</queryString>
+	<field name="idproveedores" class="java.lang.Integer"/>
+	<field name="prov_nombre" class="java.lang.String"/>
+	<field name="prov_ruc" class="java.lang.String"/>
+	<field name="prov_telefono" class="java.lang.String"/>
+	<field name="prov_direccion" class="java.lang.String"/>
+	<field name="prov_email" class="java.lang.String"/>
+	<field name="ciu_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="119" y="0" width="338" height="32" uuid="02aded46-347a-4c74-9916-a380df1ce4c4"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Individual de Proveedores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="31" height="20" uuid="f78e1fdf-f678-495c-898d-118c3c8461d0"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="0" width="67" height="20" uuid="27470826-a2c6-45ab-839b-1021d1ea11a2"/>
+				<text><![CDATA[prov_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="53" height="20" uuid="be78b8c9-8ae7-466e-be6a-23396eb2c214"/>
+				<text><![CDATA[prov_ruc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="78" height="20" uuid="863620b2-c041-433a-ab9b-a3d75f5627c2"/>
+				<text><![CDATA[prov_telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="79" height="20" uuid="4741dae8-c198-4e6d-a9c3-cd38763f1fa5"/>
+				<text><![CDATA[prov_direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="0" width="78" height="20" uuid="285a51f1-d1ee-422a-9100-a8ad4b5eb41b"/>
+				<text><![CDATA[prov_email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="0" width="69" height="20" uuid="1607a410-6c58-4192-b6b2-546dd4d5153c"/>
+				<text><![CDATA[ciu_nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="31" height="20" uuid="cec80336-06e2-4b72-8d03-b3b3b3ab869f"/>
+				<textFieldExpression><![CDATA[$F{idproveedores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="0" width="67" height="20" uuid="b3f2ee91-dd21-4cd3-a671-519d6ac7c216"/>
+				<textFieldExpression><![CDATA[$F{prov_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="53" height="20" uuid="674ada93-8fa4-4cc2-a45f-7057ba5040ff"/>
+				<textFieldExpression><![CDATA[$F{prov_ruc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="78" height="20" uuid="4bbe8efb-b2e0-4b13-a75e-4b0852b4acd4"/>
+				<textFieldExpression><![CDATA[$F{prov_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="89" height="20" uuid="0377708b-b73d-40fd-979c-0a4bf074e397"/>
+				<textFieldExpression><![CDATA[$F{prov_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="0" width="97" height="20" uuid="0001c72c-eb81-40ac-861b-8ebe2c500a2d"/>
+				<textFieldExpression><![CDATA[$F{prov_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="0" width="69" height="20" uuid="b81fb95d-3fab-4268-b37c-e8ea909dbeee"/>
+				<textFieldExpression><![CDATA[$F{ciu_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="38" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="35" splitType="Stretch"/>
+	</summary>
+</jasperReport>

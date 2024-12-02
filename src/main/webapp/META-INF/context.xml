@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/HotelRoom">
+  <Resource name="jdbc/postgres" auth="Container"
+            type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+            url="jdbc:postgresql://localhost:5432/HotelRum"
+            username="postgres" password="1"
+            maxActive="200" maxIdle="10" minIdle="5" initialSize="5"
+            validationQuery="SELECT 1" testOnBorrow="true"/>
+</Context>

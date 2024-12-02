@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2eb9bf3f-8cf7-4750-89ec-b94316c8770d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM "HotelRum"."habitaciones" ORDER BY idhabitaciones ASC;]]>
+	</queryString>
+	<field name="idhabitaciones" class="java.lang.Integer"/>
+	<field name="habi_descripcion" class="java.lang.String"/>
+	<field name="habi_estado" class="java.lang.String"/>
+	<field name="habi_precio" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="118" y="0" width="336" height="28" uuid="0af8fd10-619f-4b5e-9da4-fcd198ce0a0d"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Habitaciones]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="61" y="0" width="77" height="20" uuid="a6f8c6a6-7967-40c3-8df2-156dd583d311"/>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="118" height="20" uuid="62f19313-53ab-46ba-932f-b5c3578c616b"/>
+				<text><![CDATA[habi_descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="98" height="20" uuid="d81f43d3-e97b-42f4-b5f2-7e9f4e1bd639"/>
+				<text><![CDATA[habi_estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="0" width="79" height="20" uuid="1155907a-807f-4c2c-a659-e081e708a8c0"/>
+				<text><![CDATA[habi_precio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="61" y="0" width="77" height="20" uuid="0334a3f6-4f8a-4733-b14c-cd1897861c43"/>
+				<textFieldExpression><![CDATA[$F{idhabitaciones}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="118" height="20" uuid="093783f5-ca69-4590-8cc2-c9f1a92e685d"/>
+				<textFieldExpression><![CDATA[$F{habi_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="98" height="20" uuid="7b44bb1b-c482-403b-87f2-27dc1b973b76"/>
+				<textFieldExpression><![CDATA[$F{habi_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="79" height="20" uuid="99461353-f374-4a76-8034-c3b1f9570727"/>
+				<textFieldExpression><![CDATA[$F{habi_precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="36" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="36" splitType="Stretch"/>
+	</summary>
+</jasperReport>

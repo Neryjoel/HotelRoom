@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4cd923c4-0d06-44de-81b2-c785779c03a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT p.idpersonales, p.per_nombre, p.per_apellido, p.per_telefono, p.per_ci, c.ciu_nombre 
+	FROM "HotelRum"."personales" p JOIN "HotelRum"."ciudades" c 
+	ON p.ciudades_idciudades = c.idciudades ORDER BY p.idpersonales ASC;]]>
+	</queryString>
+	<field name="idpersonales" class="java.lang.Integer"/>
+	<field name="per_nombre" class="java.lang.String"/>
+	<field name="per_apellido" class="java.lang.String"/>
+	<field name="per_telefono" class="java.lang.String"/>
+	<field name="per_ci" class="java.lang.String"/>
+	<field name="ciu_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="135" y="0" width="317" height="31" uuid="3ebf4b28-8bba-4afc-95af-f0d76f2277ab"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Personales]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="71" height="20" uuid="d5e3b557-8caa-4348-8025-319eb5d96634"/>
+				<text><![CDATA[idpersonales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="0" width="92" height="20" uuid="9806e711-0331-4a47-8050-40ee2bcf3e84"/>
+				<text><![CDATA[per_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="0" width="92" height="20" uuid="cb686be5-ae17-43a6-9470-33c4b3a5b602"/>
+				<text><![CDATA[per_apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="92" height="20" uuid="5941adbb-f5bb-40ab-bd32-1bad2924759a"/>
+				<text><![CDATA[per_telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="0" width="66" height="20" uuid="582b6fab-ddb5-4b2d-a0b1-4a32a6d0bbfb"/>
+				<text><![CDATA[per_ci]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="92" height="20" uuid="11ff36ab-a057-4866-9df7-6d1e0446562a"/>
+				<text><![CDATA[ciu_nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="0" width="71" height="20" uuid="9ba3a7f8-6844-4306-8573-2a175a7c1b15"/>
+				<textFieldExpression><![CDATA[$F{idpersonales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="0" width="92" height="20" uuid="9fd18fad-3b92-4ee5-9c81-bf963a9c4cf7"/>
+				<textFieldExpression><![CDATA[$F{per_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="92" height="20" uuid="ae3477f3-c4fb-46b4-8ba8-14f8f26acc79"/>
+				<textFieldExpression><![CDATA[$F{per_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="92" height="20" uuid="ab59caae-f860-4ccd-83eb-e4e83ca85e94"/>
+				<textFieldExpression><![CDATA[$F{per_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="0" width="66" height="20" uuid="432da227-3eeb-442f-88ee-15e50f200e89"/>
+				<textFieldExpression><![CDATA[$F{per_ci}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="92" height="20" uuid="6373e9b7-c376-46b4-8f23-f1d6151e3a37"/>
+				<textFieldExpression><![CDATA[$F{ciu_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

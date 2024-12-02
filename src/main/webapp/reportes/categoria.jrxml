@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a0f9576-2929-410f-9c9c-0fb932875b80">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codcategorias" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT idcategorias, cat_nombre
+	FROM "HotelRum".categorias where idcategorias = $P{codcategorias} order by idcategorias asc;]]>
+	</queryString>
+	<field name="idcategorias" class="java.lang.Integer"/>
+	<field name="cat_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="124" y="0" width="315" height="32" uuid="732854e0-c510-49ed-94b7-e8c98e89d6dd"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Individual de Categorías]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="186" y="0" width="91" height="20" uuid="67cc99ab-1c4b-4b4c-8488-965999af1e5e"/>
+				<text><![CDATA[idcategorias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="162" height="20" uuid="0c7c312e-5a1d-4556-b5c8-9f080a77e4a5"/>
+				<text><![CDATA[cat_nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="186" y="0" width="91" height="20" uuid="8e5675e1-bc41-4cbd-bdb7-eaa86da7fbb9"/>
+				<textFieldExpression><![CDATA[$F{idcategorias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="162" height="20" uuid="5cdbec10-c142-41e6-8316-f74b0a3bb2ff"/>
+				<textFieldExpression><![CDATA[$F{cat_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="35" splitType="Stretch"/>
+	</summary>
+</jasperReport>

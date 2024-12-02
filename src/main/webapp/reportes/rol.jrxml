@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c847f206-e813-4987-bb1f-8ab796b03c84">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codroles" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *FROM "HotelRum".roles where idroles= $P{codroles};]]>
+	</queryString>
+	<field name="idroles" class="java.lang.Integer"/>
+	<field name="rol_descripcion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="166" y="10" width="227" height="34" uuid="ff52d642-4ebe-483c-8dcf-86c6692b113b"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Individual de Roles]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="152" y="0" width="53" height="20" uuid="8bba3665-1646-477d-a44d-eb18f45d90c0"/>
+				<text><![CDATA[idroles]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="0" width="101" height="20" uuid="1de9448d-f8b7-483e-8da8-8700ac65482c"/>
+				<text><![CDATA[rol_descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="152" y="0" width="53" height="20" uuid="2cc35a40-7d10-4865-9628-57678973ff1d"/>
+				<textFieldExpression><![CDATA[$F{idroles}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="0" width="101" height="20" uuid="9c8f4306-4bf5-425f-a23d-3ef6a0fc158a"/>
+				<textFieldExpression><![CDATA[$F{rol_descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

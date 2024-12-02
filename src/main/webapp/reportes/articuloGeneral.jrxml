@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a3c823d-1902-41db-8558-8f04a8ef4940">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT a.idarticulos, a.art_nombre, a.art_precio_compra, a.art_precio_venta, c.cat_nombre 
+	FROM "HotelRum"."articulos" a 
+	JOIN "HotelRum"."categorias" c 
+	ON a.categorias_idcategorias = c.idcategorias ORDER BY a.idarticulos ASC;]]>
+	</queryString>
+	<field name="idarticulos" class="java.lang.Integer"/>
+	<field name="art_nombre" class="java.lang.String"/>
+	<field name="art_precio_compra" class="java.math.BigDecimal"/>
+	<field name="art_precio_venta" class="java.math.BigDecimal"/>
+	<field name="cat_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="0" width="280" height="29" uuid="941daa22-6324-4205-87a4-08e61d39ccd5"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Articulos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="38" y="0" width="56" height="20" uuid="14359ff1-a5ea-4d0e-9c41-c80cabd4f849"/>
+				<text><![CDATA[idarticulos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="0" width="79" height="20" uuid="5b2460d7-92e5-493a-91d2-86e645558a80"/>
+				<text><![CDATA[art_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="92" height="20" uuid="fdd1e30f-6e61-40d2-9498-c10122c1b8a0"/>
+				<text><![CDATA[art_precio_compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="90" height="20" uuid="095a5bec-e729-4e2e-8025-d566b0fbe18c"/>
+				<text><![CDATA[art_precio_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="0" width="111" height="20" uuid="6b82dcd6-8e5e-4209-be16-61737b192798"/>
+				<text><![CDATA[cat_nombre]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="0" width="56" height="20" uuid="971dc10b-8bc6-4268-a75b-d305c37b7b42"/>
+				<textFieldExpression><![CDATA[$F{idarticulos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="92" height="20" uuid="7a15b6fc-a0b1-487f-8545-6cb00af718fc"/>
+				<textFieldExpression><![CDATA[$F{art_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="92" height="20" uuid="8fbefe0a-afee-4365-89d8-69ffcd3d95fd"/>
+				<textFieldExpression><![CDATA[$F{art_precio_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="90" height="20" uuid="ff00acfb-6a4a-4cb0-a154-f48ca98d4b4a"/>
+				<textFieldExpression><![CDATA[$F{art_precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="111" height="20" uuid="9c30f3eb-dd47-4f45-b953-35b5c9947cfd"/>
+				<textFieldExpression><![CDATA[$F{cat_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="33" splitType="Stretch"/>
+	</summary>
+</jasperReport>

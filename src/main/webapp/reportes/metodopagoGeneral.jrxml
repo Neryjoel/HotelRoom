@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3505502-ea46-4ebd-ac77-50359f45f32b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT idmetodo_pago, descripcion
+	FROM "HotelRum".metodo_pago;]]>
+	</queryString>
+	<field name="idmetodo_pago" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="91" y="0" width="376" height="28" uuid="8fa223be-7925-4e16-8938-61f4735ed6bb"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte General de Metodos de Pagos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="14" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="0" width="107" height="20" uuid="b3fa3901-6db4-4fce-a231-b6630b11087e"/>
+				<text><![CDATA[idmetodo_pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="190" height="20" uuid="c5ac3138-da58-4e80-b3b3-cf5dbe198d1b"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="170" y="0" width="107" height="20" uuid="c55b11df-567f-48be-a2a1-ab68945ec39a"/>
+				<textFieldExpression><![CDATA[$F{idmetodo_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="190" height="20" uuid="0e84a95f-f6c5-426b-a825-d93a9cbc9bb6"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
